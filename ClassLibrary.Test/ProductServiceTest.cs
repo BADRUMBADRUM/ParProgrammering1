@@ -70,5 +70,18 @@ namespace ClassLibrary.Test
             //assert
             Assert.AreEqual(6, sut.GetProdID(1).antal);
         }
+        [TestMethod]
+        public void When_function_Total_is_called_return_total_price_of_products()
+        {
+            //arrange
+            sut.products.Add(new Product { ID = 1, Name = "apelsin", antal = 3, price = 30 });
+            sut.products.Add(new Product { ID = 2, Name = "äpple", antal = 5, price = 10 });
+
+
+            //act
+            var result = sut.Total();
+            //assert
+            Assert.AreEqual(140, result);
+        }
     }
 }
